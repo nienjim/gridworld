@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Value Iteration Grid World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome for arrows -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Value Iteration Tracker</h1>
+            <p>Find the optimal policy using the Bellman equation.</p>
+        </header>
+
+        <main class="main-content">
+            <div class="grid-section">
+                <div class="modes-toggle">
+                    <button id="viewValuesBtn" class="toggle-btn active">Show Values V(s)</button>
+                    <button id="viewPolicyBtn" class="toggle-btn">Show Policy π(s)</button>
+                </div>
+                <div id="grid" class="grid-container"></div>
+            </div>
+
+            <aside class="controls-section">
+                <div class="panel">
+                    <h3>Tools</h3>
+                    <div class="tools">
+                        <button class="tool-btn active" data-tool="none"><i class="fa-solid fa-arrow-pointer"></i>
+                            Select</button>
+                        <button class="tool-btn" data-tool="start"><i class="fa-solid fa-play"
+                                style="color:#4ADE80;"></i> Set Start</button>
+                        <button class="tool-btn" data-tool="end"><i class="fa-solid fa-flag-checkered"
+                                style="color:#F87171;"></i> Set End</button>
+                        <button class="tool-btn" data-tool="block"><i class="fa-solid fa-cube"
+                                style="color:#9CA3AF;"></i> Toggle Block</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <h3>Actions</h3>
+                    <button id="runBtn" class="primary-btn"><i class="fa-solid fa-bolt"></i> Run Value
+                        Iteration</button>
+                    <button id="resetBtn" class="secondary-btn"><i class="fa-solid fa-rotate-left"></i> Reset
+                        Defaults</button>
+                </div>
+
+                <div class="panel legend">
+                    <h3>Legend</h3>
+                    <ul>
+                        <li><span class="legend-color start"></span> Start State</li>
+                        <li><span class="legend-color end"></span> End/Goal State</li>
+                        <li><span class="legend-color block"></span> Obstacle (Blocked)</li>
+                    </ul>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
